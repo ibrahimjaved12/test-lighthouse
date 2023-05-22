@@ -11,9 +11,11 @@ jobs:
       uses: foo-software/lighthouse-check-action@master
       with:
         outputDirectory: /tmp/artifacts
+        accessToken: ${{ secrets.LIGHTHOUSE_CHECK_GITHUB_ACCESS_TOKEN }}
         urls: 'https://www.foo.software,https://www.foo.software/contact'
     - name: Upload artifacts
       uses: actions/upload-artifact@master
       with:
         name: Lighthouse reports
         path: /tmp/artifacts
+        with:
